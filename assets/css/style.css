@@ -1,0 +1,89 @@
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  background: white;
+}
+.progress-container {
+  position: fixed;
+  left: 0;
+  top: 56px;
+  z-index: 10;
+  width: 100%;
+  height: 1px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  background: white;
+}
+.progress-bar {
+  height: 1px;
+  background: #2698ba;
+  width: 0%;
+}
+.personal-info-area{
+  font-family: monospace;
+}
+.personal-info-name{
+  font-size: 26px;
+  text-transform: capitalize;
+  font-weight: 500;
+  color: black;
+  font-family: "Roboto Slab", serif;
+  margin-bottom: 8px;
+  text-decoration: none;
+}
+.personal-info-img {
+  width: 240px;
+  height: 240px;
+  margin-bottom: 20px;
+  margin-top: -40px;
+}
+.linkedin{
+  background: #f3f6f6;
+  color: #0a66c2;
+}
+.linkedin:hover{
+  background: #0a66c2;
+  color: white;
+}
+.x-twitter{
+  background: #f3f6f6;
+  color: black;
+}
+.x-twitter:hover{
+  background: black;
+  color: white;
+}
+.google-scholar{
+  background: #f3f6f6;
+  color: blue;
+}
+.google-scholar:hover{
+  background: #9c9c9c;
+  color: #ededed;
+}
+.page-title {
+  position: relative;
+  display: inline-block;
+  font-family: "Roboto Slab", serif;
+}
+.page-title::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 3px;
+  background-color: #1b74e4;
+  left: 122%;
+  top: 50%;
+  transform: translatey(-50%);
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+.news-list{
+  list-style: none;
+}
+.news-list li{
+  margin-bottom: 25px;
+  margin-left: -30px;
+}

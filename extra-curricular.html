@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FNK</title>
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
+    <link href="./assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
+    <link href="./assets/fontawesome/css/brands.css" rel="stylesheet" />
+    <link href="./assets/fontawesome/css/solid.css" rel="stylesheet" />
+    <script src="./assets/js/script.js"></script>
+</head>
+<style>
+    iframe {
+        overflow: hidden !important; /* Disable scrolling inside the iframe */
+        border: none; /* Optional: Remove border */
+        height: 100vh;
+    }
+</style>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href=""></a>
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarScroll"
+                    aria-controls="navbarScroll"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="research.html">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resume.html">Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teaching-dossier.html">Teaching Dossier</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="extra-curricular.html">Extra Curricular</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="progress-container">
+        <div class="progress-bar" id="progress"></div>
+    </div>
+</header>
+
+<div class="" style="overflow-x: hidden">
+    <iframe
+            style="display: block; border: none; width: calc(100% + 17px)"
+            class="pdf"
+            seamless="seamless"
+            src="./assets/files/Faria_Extracurricular_Optimized.pdf"
+    >
+    </iframe>
+</div>
+
+<a
+        href=""
+        class="text-decoration-none text-white"
+        download="Extracurricular_of_Faria_Nishat_Khan"
+>
+    <button
+            class="btn btn-success position-fixed text-white py-2 px-3"
+            style="bottom: 20px; left: 20px;"
+    >
+        Download
+    </button>
+</a>
+
+<script src="./assets/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

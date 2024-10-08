@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FNK</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+  <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="./assets/css/style.css" rel="stylesheet" />
+  <link href="./assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
+  <link href="./assets/fontawesome/css/brands.css" rel="stylesheet" />
+  <link href="./assets/fontawesome/css/solid.css" rel="stylesheet" />
+  <script src="./assets/js/script.js"></script>
+</head>
+<style></style>
+<body>
+<header>
+  <nav class="navbar navbar-expand-lg bg-white fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href=""></a>
+      <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarScroll"
+              aria-controls="navbarScroll"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul
+                class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll"
+        >
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="research.html">Research</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="resume.html">Resume</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="teaching-dossier.html">Teaching Dossier</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="extra-curricular.html">Extra Curricular</a>
+          </li>
+          <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Link</a>
+                    </li> -->
+        </ul>
+        <!-- <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> -->
+      </div>
+    </div>
+  </nav>
+  <div class="progress-container">
+    <div class="progress-bar" id="progress"></div>
+  </div>
+</header>
+
+<div class="container" style="margin-top: 100px">
+  <div class="row gx-md-2 gx-lg-4 gx-xl-5">
+    <div class="col-xxl-3 col-xl-3 col-md-4 col-sm-12">
+      <div class="personal-info-area d-block d-md-none mb-5">
+        <div class="personal-info-wrap">
+          <!-- img -->
+          <div class="d-flex justify-content-center">
+            <img
+                    class="personal-info-img"
+                    src="assets/img/Faria_Nishat_Khan.png"
+                    alt="avatar"
+            />
+          </div>
+
+          <!-- name -->
+          <h4 class="d-flex justify-content-center">
+            <a href="" class="personal-info-name">Faria Nishat Khan</a>
+          </h4>
+          <div
+                  class="personal-info-bio mb-15 d-flex justify-content-center"
+          >
+            Lecturer, CSE, DIU
+          </div>
+
+          <!-- socail link -->
+          <div class="d-flex gap-3 py-3 d-flex justify-content-center">
+                <span class="">
+                  <a
+                          href="https://www.linkedin.com/in/faria-nishat-khan-62b153214/"
+                          class="linkedin rounded-1 p-2"
+                          target="_blank"
+                  >
+                    <i class="fa-brands fa-linkedin-in fa-lg"></i>
+                  </a>
+                </span>
+            <span class="">
+                  <a href="#" class="x-twitter rounded-1 p-2">
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </a>
+                </span>
+            <span class="">
+                  <a
+                          href="https://scholar.google.com/citations?user=cQ8OON0AAAAJ&amp;hl=en#"
+                          class="google-scholar rounded-1 p-2"
+                  >
+                    <i class="fa-brands fa-google-scholar"></i>
+                  </a>
+                </span>
+          </div>
+
+          <!-- contact -->
+          <div class="personal-info-contact grid gap-0 row-gap-3">
+            <div
+                    class="g-col-12 personal-info-contact-item phone d-flex justify-content-center"
+            >
+                  <span class="me-2">
+                    <i class="fa-solid fa-phone"></i>
+                  </span>
+              <span><a href="tel:+8801723444424" class="text-decoration-none" style="color: var(--bs-body-color)">+88 017 23 4444 24</a></span>
+            </div>
+
+            <div
+                    class="g-col-12 personal-info-contact-item email d-flex justify-content-center"
+            >
+                  <span
+                          class="me-2 d-flex align-content-between align-items-center"
+                  >
+                    <i class="fa-regular fa-envelope"></i>
+                  </span>
+              <button
+                      type="button"
+                      class="btn btn-outline-info text-black"
+                      data-bs-toggle="popover"
+                      data-bs-title="Email"
+                      data-bs-content="farianishatkhan[at]gmail[dot]com"
+                      aria-describedby="popover969462"
+              >
+                Tap Here
+              </button>
+            </div>
+
+            <div
+                    class="g-col-12 personal-info-contact-item location d-flex justify-content-center"
+            >
+                  <span class="me-2">
+                    <i class="fa-solid fa-map-location"></i>
+                  </span>
+              <span>Dhaka, Bangladesh</span>
+            </div>
+
+            <div
+                    class="g-col-12 personal-info-contact-item calendar d-flex justify-content-center"
+            >
+                  <span class="me-2">
+                    <i class="fa-solid fa-calendar-days"></i>
+                  </span>
+              <span>March 11, 1998</span>
+            </div>
+
+            <div class="g-col-12 personal-info-contact-item download-resume d-flex justify-content-center">
+              <button type="button" class="btn btn-outline-success mt-4"><a href="#" class="text-black text-decoration-none opacity-100"><i class="fa-solid fa-cloud-arrow-down me-3 text-black opacity-100"></i>Download CV</a></button>
+            </div>
+          </div>
+
+          <!-- cv button -->
+          <!--              <div class="personal-info-btn">-->
+          <!--                <a-->
+          <!--                  class="btn-1"-->
+          <!--                  href="https://drive.google.com/file/d/1O_sfiS47AD7eFFOx9TURGTE_mXT64Rsl/view"-->
+          <!--                  target="_blank"-->
+          <!--                >-->
+          <!--                  <span class="icon">-->
+          <!--                    <i class="fa-regular fa-download"></i>-->
+          <!--                  </span>-->
+          <!--                  download cv-->
+          <!--                </a>-->
+          <!--              </div>-->
+        </div>
+      </div>
+      <div class="personal-info-area d-none d-md-block">
+        <div class="personal-info-wrap">
+          <!-- img -->
+          <div class="">
+            <img
+                    class="personal-info-img"
+                    style="margin-left: -20px;"
+                    src="assets/img/Faria_Nishat_Khan.png"
+                    alt="avatar"
+            />
+          </div>
+          <!-- name -->
+          <h4 class="">
+            <a href="" class="personal-info-name">Faria Nishat Khan</a>
+          </h4>
+          <div class="personal-info-bio mb-15">Lecturer, CSE, DIU</div>
+          <!-- socail link -->
+          <div class="d-flex gap-3 py-3">
+
+                <span class="">
+                  <a
+                          href="https://www.linkedin.com/in/faria-nishat-khan-62b153214/"
+                          class="linkedin rounded-1 p-2"
+                          target="_blank"
+                  >
+                    <i class="fa-brands fa-linkedin-in fa-lg"></i>
+                  </a>
+                </span>
+
+            <span class="">
+                  <a href="#" class="x-twitter rounded-1 p-2">
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </a>
+                </span>
+
+            <span class="">
+                  <a
+                          href="https://scholar.google.com/citations?user=cQ8OON0AAAAJ&amp;hl=en#"
+                          class="google-scholar rounded-1 p-2"
+                  >
+                    <i class="fa-brands fa-google-scholar"></i>
+                  </a>
+                </span>
+
+          </div>
+
+          <!-- contact -->
+          <div class="personal-info-contact grid gap-0 row-gap-3">
+            <div class="g-col-12 personal-info-contact-item phone">
+                  <span class="">
+                    <i class="fa-solid fa-phone"></i>
+                  </span>
+              <span><a href="tel:+8801723444424" class="text-decoration-none" style="color: var(--bs-body-color)">+88 017 23 4444 24</a></span>
+            </div>
+
+            <div class="g-col-12 personal-info-contact-item email">
+                  <span class="">
+                    <i class="fa-regular fa-envelope"></i>
+                  </span>
+              <button
+                      type="button"
+                      class="btn btn-outline-info text-black"
+                      data-bs-toggle="popover"
+                      data-bs-title="Email"
+                      data-bs-content="farianishatkhan[at]gmail[dot]com"
+                      aria-describedby="popover969462"
+              >
+                Tap Here
+              </button>
+            </div>
+
+            <div class="g-col-12 personal-info-contact-item location">
+                  <span class="">
+                    <i class="fa-solid fa-map-location"></i>
+                  </span>
+              <span>Dhaka, Bangladesh</span>
+            </div>
+
+            <div class="g-col-12 personal-info-contact-item calendar">
+                  <span class="me-1">
+                    <i class="fa-solid fa-calendar-days"></i>
+                  </span>
+              <span>March 11, 1998</span>
+            </div>
+
+            <div class="g-col-12 personal-info-contact-item download-resume">
+              <button type="button" class="btn btn-outline-success mt-4"><a href="#" class="text-black text-decoration-none opacity-100"><i class="fa-solid fa-cloud-arrow-down me-3 text-black opacity-100"></i>Download CV</a></button>
+            </div>
+          </div>
+
+          <!-- cv button -->
+          <!--              <div class="personal-info-btn">-->
+          <!--                <a-->
+          <!--                  class="btn-1"-->
+          <!--                  href="https://drive.google.com/file/d/1O_sfiS47AD7eFFOx9TURGTE_mXT64Rsl/view"-->
+          <!--                  target="_blank"-->
+          <!--                >-->
+          <!--                  <span class="icon">-->
+          <!--                    <i class="fa-regular fa-download"></i>-->
+          <!--                  </span>-->
+          <!--                  download cv-->
+          <!--                </a>-->
+          <!--              </div>-->
+        </div>
+      </div>
+    </div>
+    <div class="col-xxl-9 col-xl-9 col-md-8 col-sm-12">
+      <div class="page-content-wrapper">
+        <div class="page-title-section">
+          <h2 class="page-title">About Me</h2>
+        </div>
+        <section class="about-me">
+          <p class="fw-bold" style="text-align: justify; ">
+            Hi there! 👋
+          </p>
+          <p class="" style="text-align: justify;">
+            I’m a <span class="fw-bold">Lecturer</span> in the department of Computer Science and Engineering at <a href="https://daffodilvarsity.edu.bd/" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Daffodil International University</a>, where I get to combine my love for teaching, research, and technology every day. I believe a teacher gets to shape a world through shaping the mind of a student. I wish to be that world changing teacher one day.
+          </p>
+          <p class="" style="text-align: justify;">
+            One of my proudest roles is serving as the <span class="fw-bold">Convener</span> of <a href="https://gcpc.daffodilvarsity.edu.bd/" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">DIU Girls' Computer Programming Club(GCPC)</a> where I and my girls work to prepare the future tech geniuses.
+          </p>
+          <p class="" style="text-align: justify;">
+            Outside of teaching and research, I like to <span class="fw-bold">sing, recite, debate</span> and <span class="fw-bold">anchor</span> events. I feel alive on stage and enjoy every second of time I get to talk and present something I am passionate about.
+          </p>
+        </section>
+        <div class="page-title-section mt-5">
+          <h2 class="page-title">Research Interest</h2>
+        </div>
+        <section class="research-interest">
+          <p class="" style="text-align: justify;">
+            I am a Machine Learning Enthusiast. I have publications in <span class="text-primary">Machine Learning</span>, <span class="text-primary">Deep Learning</span>, <span class="text-primary">Natural Language Processing</span> and <span class="text-primary">Health Informatics</span>. In future I have a plan to explore more applied fields of Machine learning. <span class="text-danger">Security</span>, <span class="text-danger">Privacy</span>, <span class="text-danger">Reinforcement Learning</span> and <span class="text-danger">Multimodal Agents</span> are such areas I would love to work on.
+          </p>
+        </section>
+        <div class="page-title-section mt-5">
+          <h2 class="page-title">News</h2>
+        </div>
+        <section class="news-section">
+          <ul class="news-list">
+            <!--                Teaching 👩‍🏫, Research 📙, Extracurricular 🎉, Convocation 👩‍🎓 -->
+            <li class="d-flex">
+              <div class="me-3">📙</div>
+              <div><span class="fw-bold">26 September, 2024:</span> My paper titled <span class="fst-italic">"Predicting Pancreatic Cancer Survival and Staging: A Machine Learning Approach"</span> got presented in IEEE CONFERENCE ON COMPUTING APPLICATIONS AND SYSTEMS (COMPAS 2024)</div>,
+            </li>
+            <li class="d-flex">
+              <div class="me-3">📙</div>
+              <div><span class="fw-bold">26 September, 2024:</span> My paper titled <span class="fst-italic">"Classifying CCTV Image for Road Accident Analysis Using Deep Learning Techniques"</span> got presented in IEEE CONFERENCE ON COMPUTING APPLICATIONS AND SYSTEMS (COMPAS 2024)</div>
+            </li>
+            <li class="d-flex">
+              <div class="me-3">🎉</div>
+              <div><span class="fw-bold">15 July, 2023:</span> Joined <a href="https://gcpc.daffodilvarsity.edu.bd/" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">DIU Girls' Computer Programming Club(GCPC)</a> as the <span class="fw-bold">Convener</span>.</div>
+            </li>
+            <li class="d-flex">
+              <div class="me-3">🎉</div>
+              <div><span class="fw-bold">01 January, 2023:</span> Joined <a href="https://gcpc.daffodilvarsity.edu.bd/" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">DIU Girls' Computer Programming Club(GCPC)</a> as the <span class="fw-bold">Advisor</span> of Career & Development wing.</div>
+            </li>
+            <li class="d-flex">
+              <div class="me-3">👩‍🎓</div>
+              <div><span class="fw-bold">9 January, 2022:</span> Attended the 9th Convocation Ceremony of <a href="https://daffodilvarsity.edu.bd/" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Daffodil International University</a> and officially graduated with a B.Sc. in Computer Science and Engineering.</div>
+            </li>
+            <li class="d-flex">
+              <div class="me-3">👩‍🏫</div>
+              <div><span class="fw-bold">01 January, 2022:</span> Joined department of Computer Science and Engineering, <a href="https://daffodilvarsity.edu.bd/" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Daffodil International University</a> as a <span class="fw-bold">Lecturer</span>.</div>
+            </li>
+            <li class="d-flex">
+              <div class="me-3">📙</div>
+              <div><span class="fw-bold">8 April, 2021:</span> My paper titled <span class="fst-italic">"The Impact of Corona Pandemic on the E-Commerce Industry Using Data Mining"</span> got published in 2021 5th International Conference on Computing Methodologies and Communication (ICCMC)</div>
+            </li>
+            <li class="d-flex">
+              <div class="me-3">👩‍🏫</div>
+              <div><span class="fw-bold">1 March, 2021:</span> My B.Sc. in Computer Science and Engineering result has been officially published, graduating with a GPA of 3.74 from <a href="https://daffodilvarsity.edu.bd/" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Daffodil International University</a>.</div>
+            </li>
+            <li class="d-flex">
+              <div class="me-3">👩‍🏫</div>
+              <div><span class="fw-bold">26 February, 2021:</span> Joined department of Computer Science and Engineering, <a href="https://daffodilvarsity.edu.bd/" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Daffodil International University</a> as a Teaching Assistant and Teaching Apprentice Fellow.</div>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="d-flex flex-wrap justify-content-center align-items-center py-3 border-top">
+  <!--      <div class="col-md-4 d-flex align-items-center">-->
+  <div class="d-flex align-items-center">
+    <!--        <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">-->
+    <!--          <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>-->
+    <!--        </a>-->
+    <span class="text-body-secondary">Last Updated October 2024 ©Faria Nishat Khan</span>
+  </div>
+
+  <!--      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">-->
+  <!--        <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>-->
+  <!--        <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>-->
+  <!--        <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>-->
+  <!--      </ul>-->
+</footer>
+
+<script src="./assets/js/popper.min.js"></script>
+<script src="./assets/js/bootstrap.bundle.min.js"></script>
+<script>
+  const popoverTriggerList = document.querySelectorAll(
+          '[data-bs-toggle="popover"]',
+  );
+  const popoverList = [...popoverTriggerList].map(
+          (popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl),
+  );
+</script>
+</body>
+</html>
