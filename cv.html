@@ -70,7 +70,7 @@
 <div class="" style="overflow-x: hidden">
     <iframe
             class="pdf"
-            src="./assets/files/CV_of_Faria_Nishat_Khan.pdf"
+            id="pdf-iframe"
     >
     </iframe>
 </div>
@@ -90,12 +90,56 @@
 
 <!-- JavaScript to handle preloader -->
 <script>
-    // Wait for iframe to load fully
-    document.querySelector('.pdf').onload = function () {
-        // Hide the preloader once the iframe (PDF) is fully loaded
-        document.getElementById('preloader').style.display = 'none';
-    };
+    let preloaderHidden = false; // Flag to track preloader visibility
+
+    // Function to hide the preloader
+    function hidePreloader() {
+        if (!preloaderHidden) {
+        const preloader = document.getElementById('preloader');
+        preloader.style.display = 'none';
+        preloaderHidden = true; // Set flag to true to prevent multiple hides
+        console.log('Preloader hidden');
+        }
+    }
+
+    // Function to load the PDF as a Blob and set it as iframe src
+    function loadPdfIntoIframe() {
+        const pdfUrl = './assets/files/CV_of_Faria_Nishat_Khan.pdf'; // PDF URL
+        const iframe = document.getElementById('pdf-iframe');
+
+        // Fetch the PDF and load it fully before setting it in the iframe
+        fetch(pdfUrl)
+                .then(response => {
+                if (!response.ok) {
+                    throw new Error('PDF failed to load: ' + response.status);
+                }
+                return response.blob(); // Convert the response to a blob
+                })
+                .then(blob => {
+                console.log('PDF fully loaded as Blob');
+
+                // Create a Blob URL and set it as the iframe's src
+                const blobUrl = URL.createObjectURL(blob);
+                iframe.src = blobUrl;
+
+                // Listen for iframe's load event to hide preloader
+                iframe.onload = function() {
+                    console.log('Iframe fully loaded with PDF');
+                    hidePreloader(); // Hide the preloader after iframe loads
+                };
+                })
+                .catch(error => {
+                console.log('Error fetching the PDF:', error);
+                // Optionally, handle the error by displaying an error message to the user
+                });
+    }
+
+    // Use DOMContentLoaded to ensure the DOM is fully loaded before doing anything
+    document.addEventListener('DOMContentLoaded', function () {
+        loadPdfIntoIframe(); // Start loading the PDF into the iframe
+    });
 </script>
+
 <script src="./assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
