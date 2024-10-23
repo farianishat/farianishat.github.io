@@ -85,16 +85,48 @@
     </button>
 </a>
 
-<script src="./assets/js/bootstrap.bundle.min.js"></script>
-
 <!-- JavaScript to handle preloader -->
 <script>
-    // Wait for iframe to load fully
-    document.querySelector('.pdf').onload = function () {
-        // Hide the preloader once the iframe (PDF) is fully loaded
-        document.getElementById('preloader').style.display = 'none';
-    };
+// Polling approach: check iframe's ready state
+function checkIframeLoaded() {
+    const iframe = document.getElementById('pdf-iframe');
+    const preloader = document.getElementById('preloader');
+    
+    try {
+    // Polling: Keep checking until the iframe is fully loaded
+    const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+    if (iframeDocument.readyState === 'complete') {
+        // Hide preloader when the document inside the iframe is fully loaded
+        preloader.style.display = 'none';
+    } else {
+        // Retry every 500ms if not fully loaded
+        setTimeout(checkIframeLoaded, 500);
+    }
+    } catch (error) {
+    console.error('Error accessing iframe content: ', error);
+    }
+}
+
+// Fallback approach: set a timeout to hide the preloader after a reasonable delay (5 seconds)
+function hidePreloaderAfterDelay() {
+    setTimeout(function() {
+    const preloader = document.getElementById('preloader');
+    preloader.style.display = 'none';
+    }, 5000); // Adjust this timeout based on your needs
+}
+
+window.onload = function () {
+    const iframe = document.getElementById('pdf-iframe');
+
+    // Use polling to detect when PDF content is loaded inside the iframe
+    checkIframeLoaded();
+
+    // Fallback: Hide preloader after 5 seconds in case the polling doesn't detect it
+    hidePreloaderAfterDelay();
+};
 </script>
+
+<script src="./assets/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
