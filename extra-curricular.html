@@ -4,12 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FNK</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.png">
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="./assets/css/style.css" rel="stylesheet" />
     <link href="./assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
     <link href="./assets/fontawesome/css/brands.css" rel="stylesheet" />
     <link href="./assets/fontawesome/css/solid.css" rel="stylesheet" />
-    <script src="./assets/js/script.js"></script>
 </head>
 <style>
     iframe {
@@ -19,18 +21,23 @@
     }
 </style>
 <body>
+<!-- Preloader -->
+<div class="preloader-container" id="preloader">
+    <div class="loader"></div>
+</div>
+
 <header>
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
         <div class="container">
             <a class="navbar-brand" href=""></a>
             <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarScroll"
-                    aria-controls="navbarScroll"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
             >
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -61,7 +68,6 @@
 </header>
 
 <div class="" style="overflow-x: hidden">
-<!--    style="display: block; border: none; width: calc(100% + 17px)"-->
     <iframe
             class="pdf"
             src="./assets/files/Faria_Extracurricular_Optimized.pdf"
@@ -70,18 +76,25 @@
 </div>
 
 <a
-        href="https://raw.githubusercontent.com/farianishat/farianishat.github.com/main/assets/files/Faria_Extracurricular_Optimized.pdf"
-        class="text-decoration-none text-white"
-        download="Extracurricular_of_Faria_Nishat_Khan"
+    href="https://raw.githubusercontent.com/farianishat/farianishat.github.com/main/assets/files/Faria_Extracurricular_Optimized.pdf"
+    class="text-decoration-none text-white"
+    download="Extracurricular_of_Faria_Nishat_Khan"
 >
-    <button
-            class="btn btn-success position-fixed text-white py-2 px-3"
-            style="bottom: 20px; left: 20px;"
-    >
+    <button class="btn btn-success position-fixed text-white py-2 px-3" style="bottom: 20px; left: 20px;">
         Download
     </button>
 </a>
 
 <script src="./assets/js/bootstrap.bundle.min.js"></script>
+
+<!-- JavaScript to handle preloader -->
+<script>
+    // Wait for iframe to load fully
+    document.querySelector('.pdf').onload = function () {
+        // Hide the preloader once the iframe (PDF) is fully loaded
+        document.getElementById('preloader').style.display = 'none';
+    };
+</script>
+
 </body>
 </html>

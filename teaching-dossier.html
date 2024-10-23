@@ -4,12 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FNK</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.png">
   <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="./assets/css/style.css" rel="stylesheet" />
   <link href="./assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
   <link href="./assets/fontawesome/css/brands.css" rel="stylesheet" />
   <link href="./assets/fontawesome/css/solid.css" rel="stylesheet" />
-  <script src="./assets/js/script.js"></script>
 </head>
 <style>
   iframe {
@@ -19,6 +21,11 @@
   }
 </style>
 <body>
+<!-- Preloader -->
+<div class="preloader-container" id="preloader">
+  <div class="loader"></div>
+</div>
+
 <header>
   <nav class="navbar navbar-expand-lg bg-white fixed-top">
     <div class="container">
@@ -62,9 +69,7 @@
 
 <div class="" style="overflow-x: hidden">
   <iframe
-          style="display: block; border: none; width: calc(100% + 17px)"
           class="pdf"
-          seamless="seamless"
           src="./assets/files/Faria_Teaching_Dossier.pdf"
   >
   </iframe>
@@ -83,6 +88,14 @@
   </button>
 </a>
 
+<!-- JavaScript to handle preloader -->
+<script>
+  // Wait for iframe to load fully
+  document.querySelector('.pdf').onload = function () {
+    // Hide the preloader once the iframe (PDF) is fully loaded
+    document.getElementById('preloader').style.display = 'none';
+  };
+</script>
 <script src="./assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
