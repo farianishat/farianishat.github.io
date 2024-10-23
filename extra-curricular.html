@@ -70,7 +70,6 @@
 <div class="" style="overflow-x: hidden">
     <iframe
             class="pdf"
-            src="./assets/files/Faria_Extracurricular_Optimized.pdf"
             id="pdf-iframe"
     >
     </iframe>
@@ -88,39 +87,62 @@
 
 <!-- JavaScript to handle preloader -->
 <script>
-let fallbackTimeout;
-
-// Function to hide the preloader
-function hidePreloader() {
-    const preloader = document.getElementById('preloader');
-    preloader.style.display = 'none';
-    console.log('Preloader hidden');
-    
-    // Clear fallback timeout to prevent double hiding
-    if (fallbackTimeout) {
-    clearTimeout(fallbackTimeout);
-    console.log('Fallback timeout cleared');
+    let fallbackTimeout;
+    let preloaderHidden = false; // Flag to track preloader visibility
+    const pdfUrl = 'https://raw.githubusercontent.com/farianishat/farianishat.github.com/main/assets/files/Faria_Teaching_Dossier.pdf'; // PDF URL
+  
+    // Function to hide the preloader
+    function hidePreloader() {
+      if (!preloaderHidden) {
+        const preloader = document.getElementById('preloader');
+        preloader.style.display = 'none';
+        preloaderHidden = true; // Set flag to true to prevent multiple hides
+        console.log('Preloader hidden');
+      }
+  
+      // Clear fallback timeout to prevent double hiding
+      if (fallbackTimeout) {
+        clearTimeout(fallbackTimeout);
+        console.log('Fallback timeout cleared');
+      }
     }
-}
-
-// Use DOMContentLoaded to ensure the DOM is fully loaded before accessing the iframe
-document.addEventListener('DOMContentLoaded', function () {
-    const iframe = document.getElementById('pdf-iframe');
-
-    // Listen for the iframe's load event
-    iframe.addEventListener('load', function() {
-    console.log('Iframe loaded');
-    // Once the iframe reports that it has loaded, hide the preloader
-    hidePreloader();
+  
+    // Use DOMContentLoaded to ensure the DOM is fully loaded before accessing the iframe
+    document.addEventListener('DOMContentLoaded', function () {
+      const iframe = document.getElementById('pdf-iframe');
+  
+      // Check if the PDF exists before loading into the iframe
+      fetch(pdfUrl)
+              .then(response => {
+                if (response.ok) {
+                  console.log(response.ok)
+                  console.log('PDF is available');
+                  // Set iframe src only if PDF is available
+                  iframe.src = pdfUrl;
+                } else {
+                  console.log('PDF failed to load:', response.status);
+                  // Handle failure (e.g., display a message)
+                }
+              })
+              .catch(error => {
+                console.log('Error fetching the PDF:', error);
+                // Handle network or other errors
+              });
+  
+      // Listen for the iframe's load event
+      iframe.addEventListener('load', function() {
+        console.log('Iframe loaded');
+        // Once the iframe reports that it has loaded, hide the preloader
+        hidePreloader();
+      });
+  
+      // Fallback: Hide the preloader after a delay in case the load event doesn't fire
+      fallbackTimeout = setTimeout(function() {
+        console.log('Fallback triggered: hiding preloader after 1 second');
+        hidePreloader();
+      }, 1000);  // Timeout set to 1000 milliseconds (1 second)
     });
-
-    // Fallback: Hide the preloader after a delay in case the load event doesn't fire
-    fallbackTimeout = setTimeout(function() {
-    console.log('Fallback triggered: hiding preloader after 1 second');
-    hidePreloader();
-    }, 1000);  // Timeout set to 1000 milliseconds (1 second)
-});
-</script>
+  </script>
 
 <script src="./assets/js/bootstrap.bundle.min.js"></script>
 
