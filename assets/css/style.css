@@ -35,9 +35,10 @@ body {
 }
 .personal-info-img {
   width: 240px;
-  height: 240px;
+  /* height: 240px; */
   margin-bottom: 20px;
   margin-top: -40px;
+  /* clip-path: inset(35px 0px 65px 0px); */
 }
 .linkedin{
   background: #f3f6f6;
