@@ -25,13 +25,16 @@ body {
   font-family: monospace;
 }
 .personal-info-name{
-  font-size: 26px;
+  font-size: 25px;
   text-transform: capitalize;
   font-weight: 500;
   color: black;
   font-family: "Roboto Slab", serif;
   margin-bottom: 8px;
   text-decoration: none;
+  text-align: center;
+  flex-wrap: wrap;        /* allow wrapping when needed */
+  justify-content: center; /* keeps content centered */
 }
 .personal-info-img {
   width: 240px;
@@ -141,4 +144,14 @@ body {
 
 .publication-list li:not(:first-child) {
   margin-top: 20px;
+}
+
+.pronouns {
+  font-size: 10px;
+  color: #555;
+  background-color: #f1f3f5;
+  white-space: nowrap;
+  padding: 5px 3px;
+  border-radius: 10px;
+  margin-left: 5px;
 }
