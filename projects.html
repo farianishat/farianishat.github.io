@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FNK</title>
+  <meta name="description" content="Independent research projects by Faria Nishat Khan">
+  <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.png">
+  <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="./assets/css/style.css" rel="stylesheet" />
+  <link href="./assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
+  <link href="./assets/fontawesome/css/brands.css" rel="stylesheet" />
+  <link href="./assets/fontawesome/css/solid.css" rel="stylesheet" />
+  <script src="./assets/js/script.js"></script>
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div class="preloader-container" id="preloader">
+    <div class="loader"></div>
+  </div>
+
+  <header>
+    <nav class="navbar navbar-expand-lg bg-white fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="research.html">Research</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="projects.html">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cv.html">CV</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="teaching-dossier.html">Teaching Dossier</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="extra-curricular.html">Extra Curricular</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="progress-container">
+      <div class="progress-bar" id="progress"></div>
+    </div>
+  </header>
+
+  <div class="container" style="margin-top: 100px; min-height: 100vh;">
+    <div class="row gx-md-2 gx-lg-4 gx-xl-5">
+      <div class="col">
+        <div class="page-content-wrapper">
+
+          <!-- ===== Intro ===== -->
+          <div class="page-title-section">
+            <h2 class="page-title">Independent Projects</h2>
+          </div>
+          <section class="projects-intro">
+            <p>
+              Alongside my thesis, I build self-directed projects to explore the questions at the center of my
+              research: how AI systems behave on real-world data, where they break, and how we can explain and trust
+              their decisions. I design, build, and evaluate each project on my own, end to end, using public
+              datasets, and each one runs fully on a CPU so anyone can reproduce it.
+            </p>
+            <p class="mb-0">
+              Each entry below gives a short summary, the key findings, and selected figures. Click any figure to
+              enlarge it. The full code, report, and all results are on GitHub.
+            </p>
+          </section>
+
+          <!-- ===== Project list ===== -->
+          <section class="project-list">
+
+            <!-- ---------- Project: Explainable Stress Detection ---------- -->
+            <article class="project-card">
+              <div class="row g-4">
+                <div class="col-lg-5">
+                  <h3 class="project-title">Explainable Stress Detection from Wearable Physiological Signals</h3>
+                  <div class="project-tags">
+                    <span>Wearable Sensing</span><span>Explainable AI</span><span>Robustness</span><span>Python</span><span>XGBoost</span><span>SHAP</span>
+                  </div>
+                  <p class="project-brief">
+                    An end-to-end pipeline that detects acute stress from wrist sensor signals (EDA, BVP, skin
+                    temperature, motion) in the WESAD dataset. I engineered 22 physiological features from 1,049
+                    windows across 15 subjects, tested every model on people it never saw in training
+                    (leave-one-subject-out), explained predictions with SHAP, and stress-tested the model with
+                    sensor noise. This is groundwork for real-time cybersickness prediction in VR.
+                  </p>
+                  <h4 class="project-subhead">Key findings</h4>
+                  <ul class="project-findings">
+                    <li><strong>91.6% accuracy</strong> detecting stress in unseen users (Random Forest, binary).</li>
+                    <li>Random splits <strong>inflate accuracy by up to 15.9 points</strong> because of subject
+                      leakage. Subject-wise testing is essential.</li>
+                    <li>Heart rate variability and skin conductance are the <strong>strongest stress signals</strong>.
+                    </li>
+                    <li>Holds <strong>90.1% accuracy</strong> under moderate sensor noise (&sigma; = 0.2).</li>
+                  </ul>
+                  <a class="btn btn-sm btn-outline-dark project-btn"
+                    href="https://github.com/farianishat/explainable-physiological-stress-ai" target="_blank"
+                    rel="noopener"><i class="fa-brands fa-github"></i> View code and full report</a>
+                </div>
+                <div class="col-lg-7">
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/stress/04_loso_vs_random_leakage_gap.jpg"
+                          alt="LOSO vs random split accuracy" loading="lazy">
+                        <figcaption>Leakage gap: unseen-user vs random split</figcaption>
+                      </figure>
+                    </div>
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/stress/03_loso_per_subject_accuracy.jpg"
+                          alt="Per-subject LOSO accuracy" loading="lazy">
+                        <figcaption>Accuracy for each unseen subject</figcaption>
+                      </figure>
+                    </div>
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/stress/06a_shap_beeswarm.jpg" alt="SHAP beeswarm summary"
+                          loading="lazy">
+                        <figcaption>SHAP: which signals drive predictions</figcaption>
+                      </figure>
+                    </div>
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/stress/07_noise_robustness_curve.jpg"
+                          alt="Accuracy vs sensor noise" loading="lazy">
+                        <figcaption>Robustness to sensor noise</figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!--
+            ===== TEMPLATE: copy this block for each new project =====
+            1. Put figures in ./assets/img/projects/<short-name>/
+            2. Keep the brief to 3 or 4 sentences and the findings to 3 or 4 bullets.
+
+            <article class="project-card">
+              <div class="row g-4">
+                <div class="col-lg-5">
+                  <h3 class="project-title">PROJECT TITLE</h3>
+                  <div class="project-tags">
+                    <span>Topic</span><span>Topic</span><span>Tool</span>
+                  </div>
+                  <p class="project-brief">What the project does, the data, and the method in 3 or 4 sentences.</p>
+                  <h4 class="project-subhead">Key findings</h4>
+                  <ul class="project-findings">
+                    <li><strong>Headline number</strong> and what it means.</li>
+                    <li>Second finding.</li>
+                    <li>Third finding.</li>
+                  </ul>
+                  <a class="btn btn-sm btn-outline-dark project-btn" href="GITHUB_URL" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-github"></i> View code and full report</a>
+                </div>
+                <div class="col-lg-7">
+                  <div class="row g-2">
+                    <div class="col-6"><figure class="project-fig"><img src="./assets/img/projects/NAME/fig1.jpg" alt="" loading="lazy"><figcaption>Caption</figcaption></figure></div>
+                    <div class="col-6"><figure class="project-fig"><img src="./assets/img/projects/NAME/fig2.jpg" alt="" loading="lazy"><figcaption>Caption</figcaption></figure></div>
+                    <div class="col-6"><figure class="project-fig"><img src="./assets/img/projects/NAME/fig3.jpg" alt="" loading="lazy"><figcaption>Caption</figcaption></figure></div>
+                    <div class="col-6"><figure class="project-fig"><img src="./assets/img/projects/NAME/fig4.jpg" alt="" loading="lazy"><figcaption>Caption</figcaption></figure></div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            -->
+
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Figure lightbox -->
+  <div class="modal fade" id="figModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header py-2">
+          <span class="modal-title small" id="figModalCaption"></span>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-2 text-center">
+          <img id="figModalImg" src="" alt="" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <iframe src="https://www.flagcounter.me/e8m/" style="display: none;" width="0" height="0"></iframe>
+
+  <footer class="d-flex flex-wrap justify-content-center align-items-center py-3 border-top">
+    <div class="d-flex align-items-center">
+      <span class="text-body-secondary">Last Updated November 2026 ©Faria Nishat Khan</span>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener("load", function () {
+      document.getElementById("preloader").style.display = "none";
+    });
+  </script>
+  <script src="./assets/js/popper.min.js"></script>
+  <script src="./assets/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Click any project figure to open it full size
+    (function () {
+      var modalEl = document.getElementById("figModal");
+      var modal = new bootstrap.Modal(modalEl);
+      document.querySelectorAll(".project-fig img").forEach(function (img) {
+        img.addEventListener("click", function () {
+          document.getElementById("figModalImg").src = img.src;
+          document.getElementById("figModalImg").alt = img.alt;
+          var cap = img.parentElement.querySelector("figcaption");
+          document.getElementById("figModalCaption").textContent = cap ? cap.textContent : "";
+          modal.show();
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>
