@@ -146,6 +146,71 @@
               </div>
             </article>
 
+            <!-- ---------- Project: CPS Adversarial Security (SKAB) ---------- -->
+            <article class="project-card">
+              <div class="row g-4">
+                <div class="col-lg-5">
+                  <h3 class="project-title">Can You Fool an Industrial Anomaly Detector? Adversarial Security for Cyber-Physical Systems</h3>
+                  <div class="project-tags">
+                    <span>Cyber-Physical Systems</span><span>Adversarial ML</span><span>Anomaly Detection</span><span>PyTorch</span><span>LSTM Autoencoder</span>
+                  </div>
+                  <p class="project-brief">
+                    I trained anomaly detectors on 8-sensor telemetry from a real water circulation testbed (SKAB),
+                    then played the attacker. Assuming an adversary who can tamper with sensor data before it reaches
+                    the detector, I built a gradient-based (PGD) evasion attack that hides an active valve fault
+                    while keeping every sensor within realistic physical limits. I then designed and tested layered
+                    defenses.
+                  </p>
+                  <h4 class="project-subhead">Key findings</h4>
+                  <ul class="project-findings">
+                    <li>At a strict 1% false-alarm rate, Isolation Forest separated faults from normal operation far
+                      better than the LSTM autoencoder (<strong>ROC-AUC 0.81 vs 0.52</strong>).</li>
+                    <li>Of the faults the autoencoder did catch, a perturbation of only <strong>0.15 standard
+                        deviations per sensor hid all of them</strong>.</li>
+                    <li>The attack is not stealthy to a second model. The same perturbations made Isolation Forest
+                      flag <strong>100% of spoofed windows</strong>.</li>
+                    <li>An autoencoder + Isolation Forest ensemble <strong>kept full detection</strong> at every
+                      attack budget, showing the value of model diversity.</li>
+                  </ul>
+                  <a class="btn btn-sm btn-outline-dark project-btn"
+                    href="https://github.com/farianishat/cps-skab-adversarial-security" target="_blank"
+                    rel="noopener"><i class="fa-brands fa-github"></i> View code and full report</a>
+                </div>
+                <div class="col-lg-7">
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/cps/06_detection_rate_vs_budget.jpg"
+                          alt="Detection rate vs attack budget" loading="lazy">
+                        <figcaption>Detection rate vs attack budget</figcaption>
+                      </figure>
+                    </div>
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/cps/05_clean_vs_perturbed_overlay.jpg"
+                          alt="Clean vs spoofed sensor signals" loading="lazy">
+                        <figcaption>Real vs spoofed sensor signals</figcaption>
+                      </figure>
+                    </div>
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/cps/03_error_over_time.jpg"
+                          alt="Reconstruction error over time" loading="lazy">
+                        <figcaption>Anomaly score vs alarm threshold</figcaption>
+                      </figure>
+                    </div>
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/cps/01_sensor_timeseries_shaded.jpg"
+                          alt="Sensor telemetry with fault regions" loading="lazy">
+                        <figcaption>Sensor telemetry with valve faults shaded</figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
             <!--
             ===== TEMPLATE: copy this block for each new project =====
             1. Put figures in ./assets/img/projects/<short-name>/
