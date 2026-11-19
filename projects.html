@@ -270,6 +270,66 @@
               </div>
             </article>
 
+            <!-- ---------- Project: CIFAR-10 Robustness Report Card ---------- -->
+            <article class="project-card">
+              <div class="row g-4">
+                <div class="col-lg-5">
+                  <h3 class="project-title">Robustness Report Card for an Image Classifier</h3>
+                  <div class="project-tags">
+                    <span>Adversarial ML</span><span>Adversarial Training</span><span>Computer Vision</span><span>PyTorch</span>
+                  </div>
+                  <p class="project-brief">
+                    I built a modular PyTorch pipeline that trains a compact CNN on CIFAR-10, attacks it with FGSM and
+                    PGD across five perturbation sizes, and defends it with PGD adversarial training. I then compared
+                    both models on accuracy, attack success rate, confidence, per-class errors, and the geometry of
+                    their internal features.
+                  </p>
+                  <h4 class="project-subhead">Key findings</h4>
+                  <ul class="project-findings">
+                    <li>A standard CNN with about 69% clean accuracy <strong>drops to near 0%</strong> under PGD at
+                      &epsilon; = 8/255, with changes invisible to the eye.</li>
+                    <li>Under attack it becomes <strong>more confident while wrong</strong> (mean confidence rises from
+                      about 0.67 to 0.90).</li>
+                    <li>Adversarial training keeps <strong>24% accuracy at &epsilon; = 8/255</strong>, twice its
+                      training budget, and cuts attack success from about 100% to 52%.</li>
+                    <li>The price is about <strong>19 points of clean accuracy</strong>, a clear measure of the
+                      robustness trade-off.</li>
+                  </ul>
+                  <a class="btn btn-sm btn-outline-dark project-btn"
+                    href="https://github.com/farianishat/cifar10-robustness-report-card" target="_blank"
+                    rel="noopener"><i class="fa-brands fa-github"></i> View code and full report</a>
+                </div>
+                <div class="col-lg-7">
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/cifar/accuracy_vs_epsilon.jpg" alt="Accuracy vs attack strength (FGSM, PGD)" loading="lazy">
+                        <figcaption>Accuracy vs attack strength (FGSM, PGD)</figcaption>
+                      </figure>
+                    </div>
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/cifar/adversarial_examples_grid.jpg" alt="Original, perturbation, and adversarial images" loading="lazy">
+                        <figcaption>Original, perturbation, and adversarial images</figcaption>
+                      </figure>
+                    </div>
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/cifar/confidence_histograms.jpg" alt="Confidence under attack" loading="lazy">
+                        <figcaption>Confidence under attack</figcaption>
+                      </figure>
+                    </div>
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/cifar/tsne_features.jpg" alt="t-SNE of internal features, clean vs attacked" loading="lazy">
+                        <figcaption>t-SNE of internal features, clean vs attacked</figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
             <!--
             ===== TEMPLATE: copy this block for each new project =====
             1. Put figures in ./assets/img/projects/<short-name>/
