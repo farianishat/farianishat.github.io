@@ -211,6 +211,65 @@
               </div>
             </article>
 
+            <!-- ---------- Project: Small LLM Honesty and Calibration (TruthfulQA) ---------- -->
+            <article class="project-card">
+              <div class="row g-4">
+                <div class="col-lg-5">
+                  <h3 class="project-title">How Honest and Calibrated Is a Small LLM? A TruthfulQA Audit</h3>
+                  <div class="project-tags">
+                    <span>Trustworthy LLMs</span><span>Calibration</span><span>Prompt Sensitivity</span><span>Hugging Face</span><span>PyTorch</span>
+                  </div>
+                  <p class="project-brief">
+                    I built an evaluation harness to audit two small open LLMs (Qwen2.5-0.5B and SmolLM2-360M) on all
+                    817 TruthfulQA questions. Each answer option is scored by log-likelihood, so the audit needs no
+                    text generation and runs on a CPU. I measured truthfulness, calibration (ECE, Brier score), and
+                    how often answers change with prompt wording, then tested temperature scaling as a fix.
+                  </p>
+                  <h4 class="project-subhead">Key findings</h4>
+                  <ul class="project-findings">
+                    <li>Both models are <strong>near chance</strong> (27.7% and 23.1% accuracy) and fall for popular
+                      misconceptions.</li>
+                    <li>Confidence carries <strong>no signal</strong>: average confidence is about the same when the
+                      model is right and when it is wrong (0.40 vs 0.39).</li>
+                    <li>Rewording the prompt <strong>changed the answer on 17% to 23%</strong> of questions.</li>
+                    <li>Temperature scaling <strong>cut calibration error by 35% to 40%</strong> on held-out
+                      questions, but it cannot add missing knowledge.</li>
+                  </ul>
+                  <a class="btn btn-sm btn-outline-dark project-btn"
+                    href="https://github.com/farianishat/honest-calibrated-small-llms" target="_blank"
+                    rel="noopener"><i class="fa-brands fa-github"></i> View code and full report</a>
+                </div>
+                <div class="col-lg-7">
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/llm/reliability_diagrams.jpg" alt="Reliability before and after temperature scaling" loading="lazy">
+                        <figcaption>Reliability before and after temperature scaling</figcaption>
+                      </figure>
+                    </div>
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/llm/confidence_histograms.jpg" alt="Confidence when right vs wrong" loading="lazy">
+                        <figcaption>Confidence when right vs wrong</figcaption>
+                      </figure>
+                    </div>
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/llm/prompt_variant_grouped_bars.jpg" alt="Accuracy and calibration by prompt" loading="lazy">
+                        <figcaption>Accuracy and calibration by prompt</figcaption>
+                      </figure>
+                    </div>
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/llm/top_overconfident_wrong_table.jpg" alt="Most overconfident wrong answers" loading="lazy">
+                        <figcaption>Most overconfident wrong answers</figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
             <!--
             ===== TEMPLATE: copy this block for each new project =====
             1. Put figures in ./assets/img/projects/<short-name>/
