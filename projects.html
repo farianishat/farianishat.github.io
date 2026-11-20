@@ -103,8 +103,8 @@
                     <li><strong>91.6% accuracy</strong> detecting stress in unseen users (Random Forest, binary).</li>
                     <li>Random splits <strong>inflate accuracy by up to 15.9 points</strong> because of subject
                       leakage. Subject-wise testing is essential.</li>
-                    <li>Heart rate variability and skin conductance are the <strong>strongest stress signals</strong>.
-                    </li>
+                    <li>Heart rate fluctuation and skin conductance <strong>drive the model most</strong>, followed by skin
+                      temperature (SHAP).</li>
                     <li>Holds <strong>90.1% accuracy</strong> under moderate sensor noise (&sigma; = 0.2).</li>
                   </ul>
                   <a class="btn btn-sm btn-outline-dark project-btn"
@@ -158,19 +158,20 @@
                     I trained anomaly detectors on 8-sensor telemetry from a real water circulation testbed (SKAB),
                     then played the attacker. Assuming an adversary who can tamper with sensor data before it reaches
                     the detector, I built a gradient-based (PGD) evasion attack that hides an active valve fault
-                    while keeping every sensor within realistic physical limits. I then designed and tested layered
+                    while limiting each sensor's change to a small fraction of its normal variation. I then designed and tested layered
                     defenses.
                   </p>
                   <h4 class="project-subhead">Key findings</h4>
                   <ul class="project-findings">
-                    <li>At a strict 1% false-alarm rate, Isolation Forest separated faults from normal operation far
-                      better than the LSTM autoencoder (<strong>ROC-AUC 0.81 vs 0.52</strong>).</li>
-                    <li>Of the faults the autoencoder did catch, a perturbation of only <strong>0.15 standard
+                    <li>Isolation Forest separated faults from normal operation far better than the LSTM autoencoder
+                      (<strong>ROC-AUC 0.81 vs 0.52</strong>). At a strict 1% false-alarm threshold, both caught few
+                      faults.</li>
+                    <li>Of the 43 fault windows the autoencoder did catch, a perturbation of only <strong>0.15 standard
                         deviations per sensor hid all of them</strong>.</li>
-                    <li>The attack is not stealthy to a second model. The same perturbations made Isolation Forest
-                      flag <strong>100% of spoofed windows</strong>.</li>
-                    <li>An autoencoder + Isolation Forest ensemble <strong>kept full detection</strong> at every
-                      attack budget, showing the value of model diversity.</li>
+                    <li>The attack is not stealthy to a second model. At 0.15&sigma; and above, the same
+                      perturbations made Isolation Forest flag <strong>100% of spoofed windows</strong>.</li>
+                    <li>An ensemble of both detectors with temporal smoothing <strong>kept 100% detection</strong> at
+                      every attack budget, showing the value of model diversity.</li>
                   </ul>
                   <a class="btn btn-sm btn-outline-dark project-btn"
                     href="https://github.com/farianishat/cps-skab-adversarial-security" target="_blank"
@@ -227,10 +228,10 @@
                   </p>
                   <h4 class="project-subhead">Key findings</h4>
                   <ul class="project-findings">
-                    <li>Both models are <strong>near chance</strong> (27.7% and 23.1% accuracy) and fall for popular
-                      misconceptions.</li>
+                    <li>Both models are <strong>near chance</strong> (27.7% and 23.1% accuracy vs 22.6% by random
+                      guessing) and fall for popular misconceptions.</li>
                     <li>Confidence carries <strong>no signal</strong>: average confidence is about the same when the
-                      model is right and when it is wrong (0.40 vs 0.39).</li>
+                      model is right and when it is wrong (about 0.39 to 0.40 for both models).</li>
                     <li>Rewording the prompt <strong>changed the answer on 17% to 23%</strong> of questions.</li>
                     <li>Temperature scaling <strong>cut calibration error by 35% to 40%</strong> on held-out
                       questions, but it cannot add missing knowledge.</li>
@@ -280,20 +281,20 @@
                   </div>
                   <p class="project-brief">
                     I built a modular PyTorch pipeline that trains a compact CNN on CIFAR-10, attacks it with FGSM and
-                    PGD across five perturbation sizes, and defends it with PGD adversarial training. I then compared
+                    PGD at budgets up to &epsilon; = 8/255, and defends it with PGD adversarial training. I then compared
                     both models on accuracy, attack success rate, confidence, per-class errors, and the geometry of
                     their internal features.
                   </p>
                   <h4 class="project-subhead">Key findings</h4>
                   <ul class="project-findings">
-                    <li>A standard CNN with about 69% clean accuracy <strong>drops to near 0%</strong> under PGD at
+                    <li>A standard CNN with 68.7% clean accuracy <strong>drops to 0%</strong> under PGD at
                       &epsilon; = 8/255, with changes invisible to the eye.</li>
                     <li>Under attack it becomes <strong>more confident while wrong</strong> (mean confidence rises from
-                      about 0.67 to 0.90).</li>
+                      0.66 to 0.89).</li>
                     <li>Adversarial training keeps <strong>24% accuracy at &epsilon; = 8/255</strong>, twice its
-                      training budget, and cuts attack success from about 100% to 52%.</li>
-                    <li>The price is about <strong>19 points of clean accuracy</strong>, a clear measure of the
-                      robustness trade-off.</li>
+                      training budget, and cuts attack success from 100% to 52%.</li>
+                    <li>The price is <strong>18.5 points of clean accuracy</strong> (68.7% to 50.2%), a clear measure of
+                      the robustness trade-off.</li>
                   </ul>
                   <a class="btn btn-sm btn-outline-dark project-btn"
                     href="https://github.com/farianishat/cifar10-robustness-report-card" target="_blank"
@@ -323,6 +324,66 @@
                       <figure class="project-fig">
                         <img src="./assets/img/projects/cifar/tsne_features.jpg" alt="t-SNE of internal features, clean vs attacked" loading="lazy">
                         <figcaption>t-SNE of internal features, clean vs attacked</figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ---------- Project: DistilBERT Adversarial Attacks and XAI (SST-2) ---------- -->
+            <article class="project-card">
+              <div class="row g-4">
+                <div class="col-lg-5">
+                  <h3 class="project-title">Breaking and Explaining a Sentiment Model with Word-Level Attacks</h3>
+                  <div class="project-tags">
+                    <span>NLP</span><span>Adversarial ML</span><span>Explainable AI</span><span>TextAttack</span><span>Captum</span>
+                  </div>
+                  <p class="project-brief">
+                    I attacked a fine-tuned DistilBERT sentiment model on SST-2 with three black-box attacks: TextFooler
+                    and PWWS (word swaps) and DeepWordBug (character typos). I used Integrated Gradients to see which
+                    words the model relied on before and after each attack. I then fine-tuned the model on 300
+                    adversarial plus 1,200 clean training sentences and attacked it again.
+                  </p>
+                  <h4 class="project-subhead">Key findings</h4>
+                  <ul class="project-findings">
+                    <li>The attacks flipped <strong>83% to 95% of correct predictions</strong> while changing only
+                      about 2 words per sentence.</li>
+                    <li>In 49 of 50 explained examples, the model's <strong>most important word changed</strong> after
+                      the attack.</li>
+                    <li>Light adversarial fine-tuning kept clean accuracy (91.1% to 90.3%) but cut attack success by
+                      <strong>only 2 to 6 points</strong>. A small defense budget is not enough.</li>
+                    <li>Manual review showed some "successful" swaps flip the true sentiment (for example, unfunny to
+                      funnier), so <strong>reported success rates are an upper bound</strong>.</li>
+                  </ul>
+                  <a class="btn btn-sm btn-outline-dark project-btn"
+                    href="https://github.com/farianishat/distilbert-adversarial-xai" target="_blank"
+                    rel="noopener"><i class="fa-brands fa-github"></i> View code and full report</a>
+                </div>
+                <div class="col-lg-7">
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/nlp/01_success_rate_by_attack.jpg" alt="Attack success rate by method" loading="lazy">
+                        <figcaption>Attack success rate by method</figcaption>
+                      </figure>
+                    </div>
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/nlp/04_token_attribution_pair_2.jpg" alt="Integrated Gradients: one typo flips the prediction" loading="lazy">
+                        <figcaption>Integrated Gradients: one typo flips the prediction</figcaption>
+                      </figure>
+                    </div>
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/nlp/06_similarity_vs_confidence_drop.jpg" alt="Semantic similarity vs confidence drop" loading="lazy">
+                        <figcaption>Semantic similarity vs confidence drop</figcaption>
+                      </figure>
+                    </div>
+                    <div class="col-6">
+                      <figure class="project-fig">
+                        <img src="./assets/img/projects/nlp/07_before_after_defense_comparison.jpg" alt="Before vs after adversarial fine-tuning" loading="lazy">
+                        <figcaption>Before vs after adversarial fine-tuning</figcaption>
                       </figure>
                     </div>
                   </div>
